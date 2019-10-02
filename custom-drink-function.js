@@ -79,6 +79,4 @@ function getCustomDrink (ingredients) {
     })
 };
 
-getCustomDrink(ingredients);
-
     
