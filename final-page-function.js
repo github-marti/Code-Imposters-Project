@@ -27,10 +27,13 @@ function resultsPage(drink) {
         let recipeDiv = $('<div>');
         let instructionDiv = $("<div>");
         let instructionP = $("<p>");
+        let glassP = $("<p>");
         let drink = response.drinks;
-        instructionP.text(drink[0].strInstructions);
-        instructionDiv.append(instructionP);
-        finalDrink.append(title, pic, recipeDiv, instructionP);
+        instructionP.text("Instruction: " + drink[0].strInstructions);
+        glassP.text("Glass: " + drink[0].strGlass);
+        instructionDiv.append(instructionP, glassP);
+
+        finalDrink.append(title, pic, recipeDiv, instructionDiv);
       
 
 
