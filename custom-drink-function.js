@@ -1,30 +1,33 @@
-let queryURL = ""
-let ingredients = 'gin,lime'
+// let queryURL = ""
+// let ingredients = 'gin,lime'
 
-$('#custom-submit').on('click', function() {
+$('#ingredient-submit').on('click', function() {
     // prevents page from refreshing
-    event.preventDefault;
+    event.preventDefault();
 
     // create ingredients array
     let ingredientsArray = [];
 
+    console.log($('#liquor-choice').val())
+
     // push the alcohol value into the ingredientsArray
-    ingredientsArray.push($('#alcohol-choice').val());
+    ingredientsArray.push($('#liquor-choice').val());
 
     // only take ingredients that are checked in input form
-    if ($("input[type='checkbox']").is(":checked")) {
-        ingredientsArray.push($('#checkbox_ID').val());
-    }
+    $("body input:checkbox:checked").map(function(){
+        ingredientsArray.push($(this).val());
+    });
 
     // convert ingredientsArray into string with items separated by commas
     ingredients = ingredientsArray.join();
+    console.log(ingredients);
 
     // call function
     getCustomDrink(ingredients);
 })
 
 function getCustomDrink (ingredients) {
-    queryURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${ingredients}`
+    let queryURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${ingredients}`
 
     $.ajax({
         url: queryURL,
