@@ -1,13 +1,22 @@
 'use strict'
-let drink = "Beer";
+let drink = "beer";
 
 function getMusic(drink) {
     let drinkObject = {
-        "Beer": "84",
-        "Rum": "144",
-    };
+        "random": 0,
+        "gin": 116,
+        "rum": [122, 144],
+        "vodka": 113,
+        "beer": [152, 84],
+        "tequila": [65, 113, 132],
+        "wine": [165, 129, 98],
+        "whiskey": [464, 152, 153],
+        "sake": 16,
+        "brandy": 129
+    }
 
-    let genre = drinkObject[drink];
+    let random = Math.floor(Math.random() * drinkObject[drink].length);
+    let genre = drinkObject[drink][random];
     console.log(genre);
 
     let settings = {
@@ -25,6 +34,7 @@ function getMusic(drink) {
         console.log(response);
 
         let randomArtist = Math.floor(Math.random() * response.data.length + 1);
+        console.log(randomArtist);
         let artist = response.data[randomArtist].name;
         console.log (artist);
 
@@ -40,15 +50,21 @@ function getMusic(drink) {
         }
 
         $.ajax(settings).done(function (response) {
+            // get information from ajax object
             let randomSong = Math.floor(Math.random() * response.data.length + 1);
             let songInfo = response.data[randomSong]
             let smallImage = songInfo.artist.picture;
             let songAudio = songInfo.preview;
 
-            let artistName = $('<p>').text(songInfo.artist.name);
+            // append information into the DOM
+            let mainTitle = $('<h2>').text('Your Song:')
+            let artistName = $('<h3>').text(songInfo.artist.name);
             let artistPic = $('<img>').attr('src', smallImage);
-            let songPreview = $('<audio>').
-            $('body').append(artistName, artistPic)
+            let songPreview = $('<audio>')
+            songPreview.attr('controls', true);
+            songPreview.attr('style', 'display:block;')
+            songPreview.html(`<source src=${songAudio}>`);
+            $('body').append(mainTitle, artistName, artistPic, songPreview)
 
 
             console.log(response);
