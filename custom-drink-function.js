@@ -35,6 +35,8 @@ function getCustomDrink (ingredients) {
     }).then(function(response){
         console.log(response);
 
+        $('#start-container').remove();
+
         // create container
         let container = $('<div>');
         container.addClass('option-container');
