@@ -25,7 +25,14 @@ function resultsPage(drink) {
         pic.attr('src', response.drinks['0'].strDrinkThumb);
         pic.addClass('option-pic');
         let recipeDiv = $('<div>');
-        finalDrink.append(title, pic, recipeDiv);
+        let instructionDiv = $("<div>");
+        let instructionP = $("<p>");
+        let drink = response.drinks;
+        instructionP.text(drink[0].strInstructions);
+        instructionDiv.append(instructionP);
+        finalDrink.append(title, pic, recipeDiv, instructionP);
+      
+
 
 
         for (let i = 1; i < 16; i++) {
