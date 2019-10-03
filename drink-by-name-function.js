@@ -18,23 +18,36 @@ function getSpecificDrink(drink) {
         // create container
         let container = $('<div>')
         container.addClass('option-container');
-
-        // create title
-        let nameTitle = $('<h1>').text("Looking for this?");
-        nameTitle.addClass('main-title');
-        container.append(nameTitle);
-
-        // create drink option boxes
-        let div = $("<div>");
-        div.attr('class', 'drink-box light-bg');
-        let drink = response.drinks[0].strDrink
-        let title = $("<h2>").text(drink);
-        let pic = $("<img>");
-        pic.attr('src', response.drinks[0].strDrinkThumb);
-        pic.addClass('option-pic');
-        div.append(title, pic);
-        container.append(div);
         $('body').append(container);
+
+        if (response.drinks !== null) {
+
+            // create title
+            let nameTitle = $('<h1>').text("Looking for this?");
+            nameTitle.addClass('main-title');
+            container.append(nameTitle);
+
+            // create drink option boxes
+            let div = $("<div>");
+            div.attr('class', 'drink-box light-bg');
+            let drink = response.drinks[0].strDrink
+            let title = $("<h2>").text(drink);
+            let pic = $("<img>");
+            pic.attr('src', response.drinks[0].strDrinkThumb);
+            pic.addClass('option-pic');
+            div.append(title, pic);
+            container.append(div);
+            $('body').append(container);
+
+        } else {
+            let div = $('<div>');
+            div.attr('class', 'drink-box light-bg');
+            let errorTitle = $('<h1>').text("Oh no!")
+            let p = $('<p>').text("We couldn't find a drink by that name.")
+            div.append(errorTitle, p);
+            container.append(div);
+
+        }
 
         // give drink option an event listener to bring user to final page
         $('.drink-box').on('click', function() {
