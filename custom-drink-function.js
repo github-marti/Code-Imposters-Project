@@ -1,7 +1,7 @@
 // let queryURL = ""
 // let ingredients = 'gin,lime'
 
-$('#ingredient-submit').on('click', function() {
+$('#ingredient-submit').on('click', function () {
     // prevents page from refreshing
     event.preventDefault();
 
@@ -14,7 +14,7 @@ $('#ingredient-submit').on('click', function() {
     ingredientsArray.push($('#liquor-choice').val());
 
     // only take ingredients that are checked in input form
-    $("body input:checkbox:checked").map(function(){
+    $("body input:checkbox:checked").map(function () {
         ingredientsArray.push($(this).val());
     });
 
@@ -26,18 +26,16 @@ $('#ingredient-submit').on('click', function() {
     getCustomDrink(ingredients);
 })
 
-function getCustomDrink (ingredients) {
+function getCustomDrink(ingredients) {
     let queryURL = `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${ingredients}`
 
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response){
+    }).then(function (response) {
         console.log(response);
-        
-        $('#start-container').remove();
 
-        if(!response.drinks === "None Found"){
+        $('#start-container').remove();
 
         // create container
         let container = $('<div>');
@@ -70,7 +68,7 @@ function getCustomDrink (ingredients) {
             }
 
             // give drink option an event listener to bring user to final page
-            $('.drink-box').on('click', function() {
+            $('.drink-box').on('click', function () {
                 resultsPage($(this).attr('drink-name'));
             });
 
@@ -81,11 +79,11 @@ function getCustomDrink (ingredients) {
             container.append(returnButton);
 
             // give button an event listener that brings user back to main page
-            returnButton.on('click', function() {
-                location.href="index.html";
+            returnButton.on('click', function () {
+                location.href = "index.html";
             });
-        
-        // if no drinks exist then returns an error message
+
+            // if no drinks exist then returns an error message
         } else {
 
             // append a message saying that there were no drinks found
@@ -102,12 +100,10 @@ function getCustomDrink (ingredients) {
             container.append(div);
 
             // give button an event listener that brings user back to main page
-            returnButton.on('click', function() {
-                location.href="index.html";
+            returnButton.on('click', function () {
+                location.href = "index.html";
             });
         }
     })
-    
 };
 
-    
