@@ -11,7 +11,9 @@ $('#ingredient-submit').on('click', function () {
     console.log($('#liquor-choice').val())
 
     // push the alcohol value into the ingredientsArray
-    ingredientsArray.push($('#liquor-choice').val());
+    if ($('#liquor-choice').val()) {
+        ingredientsArray.push($('#liquor-choice').val());
+    };
 
     // only take ingredients that are checked in input form
     $("body input:checkbox:checked").map(function () {
@@ -69,7 +71,9 @@ function getCustomDrink(ingredients) {
 
             // give drink option an event listener to bring user to final page
             $('.drink-box').on('click', function () {
-                resultsPage($(this).attr('drink-name'));
+                let drink = $(this).attr('drink-name')
+                console.log("getting final results for", drink)
+                resultsPage(drink);
             });
 
             // add button to bring them back to index.html if they want to try again
