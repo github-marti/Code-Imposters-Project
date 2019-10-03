@@ -42,12 +42,14 @@ function getCustomDrink (ingredients) {
         container.addClass('option-container');
         $('body').append(container);
 
+        // append drink information if drinks exist
         if (response.drinks !== "None Found") {
 
             // create title
             let mainTitle = $('<h1>').text('Select Your Drink:');
             container.append(mainTitle);
 
+            // loop a maximum of three times if drinks are available
             for (let i = 0; i < 3; i++) {
                 let div = $("<div>");
                 div.addClass('drink-box light-bg');
@@ -81,7 +83,7 @@ function getCustomDrink (ingredients) {
                 location.href="index.html";
             });
         
-        // else if it returns no drinks
+        // if no drinks exist then returns an error message
         } else {
 
             // append a message saying that there were no drinks found
