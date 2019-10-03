@@ -9,7 +9,7 @@ function resultsPage(drink) {
     }).then(function(response){
         console.log(response);
 
-        $('.main-title').text("Here's your drink!");
+        $('h1').text("Here's your drink!");
         $('.return-button').remove();
         $('.drink-box').remove();
 
@@ -25,6 +25,7 @@ function resultsPage(drink) {
         pic.attr('src', response.drinks['0'].strDrinkThumb);
         pic.addClass('option-pic');
         let recipeDiv = $('<div>');
+        let ingredientsTitle = $('<h5>').text('Ingredients')
         let instructionDiv = $("<div>");
         let instructionP = $("<p>");
         let glassP = $("<p>");
@@ -32,6 +33,7 @@ function resultsPage(drink) {
         instructionP.text("Instruction: " + drink[0].strInstructions);
         glassP.text("Glass: " + drink[0].strGlass);
         instructionDiv.append(instructionP, glassP);
+        recipeDiv.append(ingredientsTitle);
 
         finalDrink.append(title, pic, recipeDiv, instructionDiv);
       
@@ -45,6 +47,8 @@ function resultsPage(drink) {
                 recipeDiv.append(ingredientP);
             }
         }
+
+        getMusic()
 
 
     })
