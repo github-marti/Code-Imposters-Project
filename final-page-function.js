@@ -22,7 +22,7 @@ function resultsPage(drink) {
     }).then(function(response){
         console.log(response);
 
-        $('h1').text("Here's your drink!");
+        $('h1').remove();
         $('.return-button').remove();
         $('.drink-box').remove();
 
@@ -51,7 +51,7 @@ function resultsPage(drink) {
         finalDrink.append(title, pic, recipeDiv, instructionDiv);
       
 
-        let musicDrink = "";
+        let musicDrink = "random";
 
         for (let i = 1; i < 16; i++) {
             if (response.drinks['0'][`strIngredient${i}`] !== null) {
@@ -65,7 +65,7 @@ function resultsPage(drink) {
             }
         }
 
-        getMusic(drink)
+        getMusic(musicDrink)
 
 
     })
