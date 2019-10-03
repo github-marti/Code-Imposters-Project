@@ -18,8 +18,9 @@ function getSpecificDrink(drink) {
         // create container
         let container = $('<div>')
         container.addClass('option-container');
+        $('body').append(container);
 
-        if (response.drinks !== "None Found") {
+        if (response.drinks !== null) {
             // create title
             let nameTitle = $('<h1>').text("Looking for this?");
             nameTitle.addClass('main-title');
@@ -37,21 +38,21 @@ function getSpecificDrink(drink) {
             container.append(div);
             $('body').append(container);
 
-            // give drink option an event listener to bring user to final page
-            $('.drink-box').on('click', function() {
-                resultsPage(drink);
-            });
 
         } else {
-
-            // append a message saying that there were no drinks found
             let div = $('<div>');
-            div.addClass('drink-box light-bg');
-            let h3 = $('<h3>').text('Oh no!');
-            let p = $('<p>').text("We couldn't find a drink with those ingredients.");
-            div.append(h3, p);
+            div.attr('class', 'drink-box light-bg');
+            let errorTitle = $('<h1>').text("Oh no!")
+            let p = $('<p>').text("We couldn't find a drink by that name.")
+            div.append(errorTitle, p);
+            container.append(div);
 
         }
+
+        // give drink option an event listener to bring user to final page
+        $('.drink-box').on('click', function() {
+            resultsPage(drink);
+        });
 
         // add button to bring them back to index.html if they want to try again
         let returnButton = $('<button>');
