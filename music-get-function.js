@@ -68,8 +68,9 @@ function getMusic(drink) {
             songPreview.attr('controls', true);
             songPreview.attr('style', 'display:block;');
             songPreview.html(`<source src=${songAudio}>`);
-            songBox.append(mainTitle, artistName, artistPic, songPreview);
+            songBox.append(mainTitle, songName, artistName, artistPic, songPreview, spotifyLink);
             $('.option-container').append(songBox);
+
 
 
             console.log(response);

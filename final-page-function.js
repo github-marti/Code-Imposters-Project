@@ -15,6 +15,8 @@ let drinkObject = {
 
 function resultsPage(drink) {
     let queryURL = `https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${drink}`;
+    console.log(queryURL)
+    console.log(drink);
 
     $.ajax({
         url: queryURL,
@@ -59,11 +61,13 @@ function resultsPage(drink) {
                 console.log('currently on', ingredient)
                 let ingredientP = $('<p>').text(i+': ' + ingredient);
                 recipeDiv.append(ingredientP);
-                if (drinkObject.hasOwnProperty(ingredient)) {
-                    musicDrink = ingredient;
+                if (drinkObject.hasOwnProperty(ingredient.toLowerCase())) {
+                    musicDrink = ingredient.toLowerCase();
                 }
             }
         }
+
+        console.log("music genre will be based on", musicDrink);
 
         getMusic(musicDrink)
 

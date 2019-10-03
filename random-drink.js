@@ -13,6 +13,8 @@ function randomDrinks(){
     container.attr("id", "random-container");
     container.addClass("option-container");
     $("body").append(container);
+    let mainTitle = $('<h1>').text('Select Your Drink:');
+            container.append(mainTitle);
     
     for(let i = 0; i < 3; i++){
         $.ajax({
