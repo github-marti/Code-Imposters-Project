@@ -19,7 +19,7 @@ function getSpecificDrink(drink) {
         let container = $('<div>')
         container.addClass('option-container');
 
-        if (response.drinks !== "None Found") {
+        if (response.drinks !== null) {
             // create title
             let nameTitle = $('<h1>').text("Looking for this?");
             nameTitle.addClass('main-title');
