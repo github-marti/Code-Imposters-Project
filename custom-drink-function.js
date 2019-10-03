@@ -1,7 +1,8 @@
 let queryURL = ""
-let ingredients = 'gin,lime'
+let ingredients = "" 
 
-$('#custom-submit').on('click', function() {
+
+$('#ingredient-submit').on('click', function() {
     // prevents page from refreshing
     event.preventDefault;
 
@@ -9,12 +10,18 @@ $('#custom-submit').on('click', function() {
     let ingredientsArray = [];
 
     // push the alcohol value into the ingredientsArray
-    ingredientsArray.push($('#alcohol-choice').val());
+    ingredientsArray.push($('#liquor-choice').val());
 
     // only take ingredients that are checked in input form
-    if ($("input[type='checkbox']").is(":checked")) {
-        ingredientsArray.push($('#checkbox_ID').val());
-    }
+    
+    $('#checkboxes input:checked').each(function() {
+        ingredientsArray.push($(this).val());
+    });
+
+    // if ($("input[type='checkbox']").is(":checked")) {
+    //     let ch = $(".checkbox").val()
+    //     //ingredientsArray.push($(".checkbox").val());
+    // }
 
     // convert ingredientsArray into string with items separated by commas
     ingredients = ingredientsArray.join();
@@ -31,6 +38,8 @@ function getCustomDrink (ingredients) {
         method: "GET"
     }).then(function(response){
         console.log(response);
+
+        if(!response.drinks === "None Found"){
 
         // create container
         let container = $('<div>');
@@ -54,7 +63,9 @@ function getCustomDrink (ingredients) {
             container.append(div);
 
             console.log(drinkName);
+            
         }
+    
 
         // give drink option an event listener to bring user to final page
         $('.drink-box').on('click', function() {
@@ -71,7 +82,9 @@ function getCustomDrink (ingredients) {
         returnButton.on('click', function() {
             location.href="index.html";
         });
+        }
     })
+    
 };
 
 getCustomDrink(ingredients);
