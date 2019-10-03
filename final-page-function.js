@@ -51,7 +51,7 @@ function resultsPage(drink) {
         finalDrink.append(title, pic, recipeDiv, instructionDiv);
       
 
-        let drink = "";
+        let musicDrink = "";
 
         for (let i = 1; i < 16; i++) {
             if (response.drinks['0'][`strIngredient${i}`] !== null) {
@@ -60,7 +60,7 @@ function resultsPage(drink) {
                 let ingredientP = $('<p>').text(i+': ' + ingredient);
                 recipeDiv.append(ingredientP);
                 if (drinkObject.hasOwnProperty(ingredient)) {
-                    drink = ingredient;
+                    musicDrink = ingredient;
                 }
             }
         }
