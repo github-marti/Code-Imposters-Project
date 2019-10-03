@@ -1,5 +1,4 @@
 'use strict'
-let drink = "beer";
 
 function getMusic(drink) {
     let drinkObject = {
@@ -57,14 +56,17 @@ function getMusic(drink) {
             let songAudio = songInfo.preview;
 
             // append information into the DOM
-            let mainTitle = $('<h2>').text('Your Song:')
+            let songBox = $('<div>');
+            songBox.addClass('song-box');
+            let mainTitle = $('<h2>').text('Your Song:');
             let artistName = $('<h3>').text(songInfo.artist.name);
             let artistPic = $('<img>').attr('src', smallImage);
-            let songPreview = $('<audio>')
+            let songPreview = $('<audio>');
             songPreview.attr('controls', true);
-            songPreview.attr('style', 'display:block;')
+            songPreview.attr('style', 'display:block;');
             songPreview.html(`<source src=${songAudio}>`);
-            $('body').append(mainTitle, artistName, artistPic, songPreview)
+            songBox.append(mainTitle, artistName, artistPic, songPreview);
+            $('body').append(songBox);
 
 
             console.log(response);
@@ -74,5 +76,3 @@ function getMusic(drink) {
     });
 
 }
-
-getMusic(drink);
