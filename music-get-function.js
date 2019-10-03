@@ -16,7 +16,7 @@ function getMusic(drink) {
 
     let random = Math.floor(Math.random() * drinkObject[drink].length);
     let genre = drinkObject[drink][random];
-    console.log(genre);
+    console.log('genre is',genre);
 
     let settings = {
         "async": true,
@@ -59,9 +59,12 @@ function getMusic(drink) {
             let songBox = $('<div>');
             songBox.addClass('song-box');
             let mainTitle = $('<h2>').text('Your Song:');
-            let artistName = $('<h3>').text(songInfo.artist.name);
+            let artistName = $('<h4>').text('by ' + songInfo.artist.name);
+            let songName = $('<h4>').text(songInfo.title);
             let artistPic = $('<img>').attr('src', smallImage);
             let songPreview = $('<audio>');
+            let spotifyLink = $('<a>').text('Check out this artist on Spotify');
+            spotifyLink.attr('href', `https://open.spotify.com/search/${songInfo.artist.name}`)
             songPreview.attr('controls', true);
             songPreview.attr('style', 'display:block;');
             songPreview.html(`<source src=${songAudio}>`);
