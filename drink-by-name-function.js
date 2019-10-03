@@ -1,9 +1,3 @@
-// $('#name-submit').on('click', function() {
-//     let drink = $('#name-input').val().trim();
-
-//     getSpecificDrink(drink);
-// });
-
 function getSpecificDrink(drink) {
     let queryURL = `https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${drink}`;
 
@@ -66,7 +60,7 @@ function getSpecificDrink(drink) {
     })
 }
 
-$('#your-choice').on('click', function(event) {
+$('#pick-submit').on('click', function(event) {
     event.preventDefault();
     let drink = $('#textarea1').val();
     console.log(drink);
