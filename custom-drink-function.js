@@ -43,8 +43,9 @@ function getCustomDrink (ingredients) {
         let container = $('<div>');
         container.addClass('option-container');
         $('body').append(container);
-
+        //
         // append drink information if drinks exist
+        //
         if (response.drinks !== "None Found") {
             // create title
             let mainTitle = $('<h1>').text('Select Your Drink:');
