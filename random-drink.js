@@ -19,9 +19,11 @@ function randomDrinks(){
             url: queryURL,
             method: "GET"
         }).then(function(response){
+            
 
             // console.log(response);
             let div = $("<div>");
+            div.addClass('drink-box light-bg');
             let p = $("<p>");
             let img = $("<img>");
             let drink = response.drinks;
@@ -31,7 +33,7 @@ function randomDrinks(){
             img.attr("src", drink[0].strDrinkThumb);
             img.addClass("option-pic");       
             div.attr("data-name", drinkName);
-            div.addClass("drink-option")
+            // div.addClass("drink-option")
             div.append(p, img);
             container.append(div);
         
@@ -43,7 +45,7 @@ function randomDrinks(){
     }
 
             
-$("body").on("click", '.drink-option', function(event){
+$("body").on("click", '.drink-box', function(event){
     
     event.preventDefault();
     let drink = $(this).attr("data-name");
