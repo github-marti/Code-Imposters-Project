@@ -21,7 +21,6 @@ function getSpecificDrink(drink) {
         $('body').append(container);
 
         if (response.drinks !== null) {
-
             // create title
             let nameTitle = $('<h1>').text("Looking for this?");
             nameTitle.addClass('main-title');
@@ -38,6 +37,7 @@ function getSpecificDrink(drink) {
             div.append(title, pic);
             container.append(div);
             $('body').append(container);
+
 
         } else {
             let div = $('<div>');
