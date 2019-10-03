@@ -7,7 +7,7 @@ body {
 }
 
 h1, h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: rock salt;
 }
 
 button:hover {
@@ -32,17 +32,19 @@ button:hover {
 }
 
 .light-bg {
-    background: #ddd;
+    background: grey;
+    
 }
 
 .results-bg {
-    background: #ffe2fd;
+    text-decoration: white;
+    background: ;
 }
 
 .option-pic {
     width: 250px;
     margin: 10px;
-    border: solid 6px white;
+    border: solid 6px black;
     border-radius: 5px;
 }
 
@@ -51,10 +53,14 @@ button:hover {
     font-size: 1em;
     padding: 20px;
     margin: 15px;
-    background: #5f233f;
-    color: white;
+    background: grey;
+    color: black;
     border-style: none;
     border-radius: 5px;
+}
+
+.white-text {
+    font-family: rock salt;
 }
 
 
