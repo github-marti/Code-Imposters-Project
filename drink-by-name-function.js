@@ -13,6 +13,8 @@ function getSpecificDrink(drink) {
     }).then(function(response){
         console.log(response);
 
+        $('#start-container').empty();
+
         // create container
         let container = $('<div>')
         container.addClass('option-container');
@@ -52,4 +54,9 @@ function getSpecificDrink(drink) {
     })
 }
 
-// getSpecificDrink("Tom Collins");
+$('#your-choice').on('click', function(event) {
+    event.preventDefault();
+    let drink = $('#textarea1').val();
+    console.log(drink);
+    getSpecificDrink(drink)
+})
