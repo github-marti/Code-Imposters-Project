@@ -11,12 +11,25 @@ h1, h2 {
     font-family: rock salt;
 }
 
+h5 {
+    margin: 15px 0px;
+}
+
+label {
+    margin: 15px 0px;
+}
+
 button:hover {
     cursor: pointer;
 }
 
 .option-container {
     text-align: center;
+    margin-top: 50px;
+}
+
+.option-container h1 {
+    color: white;
 }
 
 .drink-box {
@@ -38,7 +51,7 @@ button:hover {
 }
 
 .results-bg {
-    margin-top: 150px;
+    margin-top: 200px;
     background-color: grey;
     border-radius: 5px;
     padding: 15px 15px 20px 15px;
@@ -48,7 +61,7 @@ button:hover {
 }
 
 .option-pic {
-    width: 250px;
+    max-width: 250px;
     margin: 10px;
     border: solid 6px grey;
     border-radius: 5px;
@@ -69,13 +82,39 @@ button:hover {
     font-family: rock salt;
 }
 
-.brand-logo center {
-    max-width: 30%;
-    height: auto;
-  }
+#random-container {
+    margin-top: 50px;
+}
 
-  .option-container{
+.brand-logo center {
+    max-width: 40%;
+    height: auto;
+}
+
+.song-box {
+    padding: 15px;
+    margin: 40px 0 10px 0;
+    border-radius: 5px;
+    background: white;
+}
+
+audio {
+    width: 100%;
+    max-width: 250px;
+}
+
+  @media only screen and (max-width: 430px) {
+      .option-pic {
+          width: 80%;
+      }
       
+      .results-bg h2 {
+          font-size: 2em;
+      }
+
+      .drink-box h2 {
+          font-size: 2em;
+      }
   }
 
 
