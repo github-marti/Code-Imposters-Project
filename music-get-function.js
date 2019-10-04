@@ -9,14 +9,17 @@ let drinkObject = {
     "beer": [152, 84],
     "tequila": [65, 113, 132],
     "red wine": [165, 129, 98],
-    "whiskey": [464, 152, 153],
+    "bourbon": [464, 152, 153, 84],
     "sake": 16,
     "brandy": 129,
     "champagne": 132,
     "cognac": [165, 116],
     "lager": [152, 84],
-
+    "rye whiskey": [464, 152, 153],
+    "irish whiskey": [464, 152, 153, 466],
 }
+
+console.log(drinkObject);
 
 // function that will get the song based on the drink ingredient passed into it
 function getMusic(drink) {
@@ -89,6 +92,7 @@ function getMusic(drink) {
 
             // create a random integer between 1 and the length of the data array in response
             let randomSong = Math.floor(Math.random() * response.data.length + 1);
+            console.log('random song id',randomSong)
 
             // get information from response that will be printed on page
             let songInfo = response.data[randomSong]
