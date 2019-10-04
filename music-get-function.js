@@ -106,10 +106,10 @@ function getMusic(drink) {
             let spotifyLink = $('<a>').text('Check out this artist on Spotify');
             spotifyLink.attr('href', `https://open.spotify.com/search/${songInfo.artist.name}`)
             songPreview.attr('controls', true);
-            songPreview.attr('style', 'display:block;');
+            songPreview.attr('style', 'display:block; margin: 0 auto;');
             songPreview.html(`<source src=${songAudio}>`);
             songBox.append(mainTitle, songName, artistName, artistPic, songPreview, spotifyLink);
-            $('.option-container').append(songBox);
+            $('div .results-bg').append(songBox);
 
         });
         
