@@ -24,10 +24,11 @@ function resultsPage(drink) {
         let finalDrink = $('<div>');
         let drinkName = response.drinks['0'].strDrink;
         console.log(drinkName);
-        let title = $("<h1>").text(drinkName);
+        let title = $("<h2>").text(drinkName);
         let pic = $("<img>");
         let recipeDiv = $('<div>');
-        let ingredientsTitle = $('<h5>').text('Ingredients')
+        let ingredientsTitle = $('<h5>').text('Ingredients');
+        let instructionsTitle = $('<h5>').text('Instructions');
         let instructionDiv = $("<div>");
         let instructionP = $("<p>");
         let glassP = $("<p>");
@@ -36,9 +37,9 @@ function resultsPage(drink) {
         $('.option-container').append(finalDrink);
         pic.attr('src', response.drinks['0'].strDrinkThumb);
         pic.addClass('option-pic');
-        instructionP.text("Instruction: " + drink[0].strInstructions);
+        instructionP.text(drink[0].strInstructions);
         glassP.text("Glass: " + drink[0].strGlass);
-        instructionDiv.append(instructionP, glassP);
+        instructionDiv.append(instructionsTitle, instructionP, glassP);
         recipeDiv.append(ingredientsTitle);
         finalDrink.append(title, pic, recipeDiv, instructionDiv);
       
