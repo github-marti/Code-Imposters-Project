@@ -7,6 +7,7 @@ body {
 }
 
 h1, h2 {
+    text-decoration: white;
     font-family: rock salt;
 }
 
@@ -37,14 +38,19 @@ button:hover {
 }
 
 .results-bg {
-    text-decoration: white;
-    background: ;
+    margin-top: 150px;
+    background-color: grey;
+    border-radius: 5px;
+    padding: 15px 15px 20px 15px;
+    margin: 10px auto;
+    text-align: center;
+    max-width: 70%;
 }
 
 .option-pic {
     width: 250px;
     margin: 10px;
-    border: solid 6px black;
+    border: solid 6px grey;
     border-radius: 5px;
 }
 
@@ -63,5 +69,13 @@ button:hover {
     font-family: rock salt;
 }
 
+.brand-logo center {
+    max-width: 30%;
+    height: auto;
+  }
+
+  .option-container{
+      
+  }
 
 
